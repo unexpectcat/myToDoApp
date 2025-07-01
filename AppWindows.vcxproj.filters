@@ -13,6 +13,23 @@
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Widgets">
+      <UniqueIdentifier>{93B73D32-FF6C-B627-8861-B0FEF415AD2B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Windows">
+      <UniqueIdentifier>{6732F132-D3E7-6928-5CDC-63FFC890602C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Widgets\BasicWidget.h">
+      <Filter>src\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Windows\TestWindow.h">
+      <Filter>src\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ColorPalettes.h" />
+    <ClInclude Include="src\Windows\CalendarView.h" />
+    <ClInclude Include="src\Widgets\CalendarWidget.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\imgui\backends\imgui_impl_glfw.cpp">
@@ -36,11 +53,20 @@
     <ClCompile Include="external\imgui\imgui_widgets.cpp">
       <Filter>external\imgui</Filter>
     </ClCompile>
+    <ClCompile Include="src\Widgets\BasicWidget.cpp">
+      <Filter>src\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Windows\TestWindow.cpp">
+      <Filter>src\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\glad.c">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ColorPalettes.cpp" />
+    <ClCompile Include="src\Windows\CalendarView.cpp" />
+    <ClCompile Include="src\Widgets\CalendarWidget.cpp" />
   </ItemGroup>
 </Project>

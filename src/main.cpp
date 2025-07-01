@@ -3,8 +3,11 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+
 #include <stdio.h>
 #include <windows.h>
+
+#include "Windows/TestWindow.h"
 
 static void glfw_error_callback(int error, const char* description) {
     fprintf(stderr, "GLFW Error %d: %s\n", error, description);
@@ -63,6 +66,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     ImGuiStyle& style = ImGui::GetStyle();
     style.ScaleAllSizes(main_scale);
     style.FontScaleDpi = main_scale;
+    //style.WindowRounding = 4.0f; // Set corner radius for buttons, sliders, etc. (in pixels)
+    style.ScaleAllSizes(main_scale);
 
     // Setup Platform/Renderer backends
     ImGui_ImplGlfw_InitForOpenGL(window, true);
@@ -71,7 +76,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     // Our state
     bool show_demo_window = true;
     bool show_another_window = false;
-    ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+    ImVec4 clear_color = ImVec4(0.972f, 0.980f, 0.992f, 1.0f);
+
+    //Setup fonts
+    ImFont* inter_font = io.Fonts->AddFontFromFileTTF("fonts\\static\\Inter_18pt-Regular.ttf", 18.0f);
+    if (inter_font == nullptr) {
+        printf("Failed to load font!\n");
+        inter_font = io.Fonts->AddFontDefault();
+    }
+    io.Fonts->Build();
 
     // Main loop
     while (!glfwWindowShouldClose(window)) {
@@ -85,6 +98,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
+
+        init_TestWindow();
 
         if (show_demo_window)
             ImGui::ShowDemoWindow(&show_demo_window);
