@@ -1,9 +1,9 @@
 #include "CalendarView.h"
-#include "../Widgets/BasicWidget.h"
+#include "../Widgets/CalendarWidget.h"
 
 void init_CalendarView()
 {
-	BasicWidget widget1 = BasicWidget(100, 200);
+	CalendarWidget widget1 = CalendarWidget(100, 200);
 
 	widget1.DisplayWidget(100, 100);
 

@@ -17,7 +17,6 @@ public:
 
 	void DisplayWidget(int x, int y) override
 	{
-		
 		ImGuiIO& io = ImGui::GetIO();
 		//PushStyleVar(ImGuiStyleVar_WindowRounding, 48.0f); // More rounded corners
 		//PushStyleVar(ImGuiStyleVar_FrameRounding, 46.0f); // Rounded buttons
@@ -34,7 +33,7 @@ public:
 			ImGuiWindowFlags_MenuBar |
 			ImGuiWindowFlags_NoBackground;
 
-		PushStyleColor(ImGuiCol_TitleBg, ColorPalete.contrast);
+		PushStyleColor(ImGuiCol_TitleBg, g_ColorPalete.contrast);
 		PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.2f, 0.4f, 0.6f, 1.0f));
 		PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.4f, 0.6f, 1.0f));
 
@@ -72,8 +71,7 @@ public:
 		ImGui::Text("Sidebar content");
 		EndChild();
 		End();
-		PopStyleColor(3); // Pop WindowBg and Button colors
-		//PopStyleVar(1);
+		PopStyleColor(3); 
 	}
 };
 

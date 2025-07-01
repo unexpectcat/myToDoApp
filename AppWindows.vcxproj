@@ -147,14 +147,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Widgets\CalendarWidget.h" />
     <ClInclude Include="src\ColorPalettes.h" />
+    <ClInclude Include="src\Style.h" />
     <ClInclude Include="src\Widgets\BasicWidget.h" />
+    <ClInclude Include="src\Widgets\CalendarWidget.h" />
     <ClInclude Include="src\Windows\CalendarView.h" />
     <ClInclude Include="src\Windows\TestWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Widgets\CalendarWidget.cpp" />
     <ClCompile Include="external\imgui\backends\imgui_impl_glfw.cpp" />
     <ClCompile Include="external\imgui\backends\imgui_impl_opengl3.cpp" />
     <ClCompile Include="external\imgui\imgui.cpp" />
@@ -163,7 +163,9 @@
     <ClCompile Include="external\imgui\imgui_tables.cpp" />
     <ClCompile Include="external\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\ColorPalettes.cpp" />
+    <ClCompile Include="src\Style.cpp" />
     <ClCompile Include="src\Widgets\BasicWidget.cpp" />
+    <ClCompile Include="src\Widgets\CalendarWidget.cpp" />
     <ClCompile Include="src\Windows\CalendarView.cpp" />
     <ClCompile Include="src\Windows\TestWindow.cpp" />
     <ClCompile Include="src\glad.c" />

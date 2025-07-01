@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <windows.h>
 
-#include "Windows/TestWindow.h"
+#include "Windows/CalendarView.h"
 
 static void glfw_error_callback(int error, const char* description) {
     fprintf(stderr, "GLFW Error %d: %s\n", error, description);
@@ -99,7 +99,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        init_TestWindow();
+        init_CalendarView();
 
         if (show_demo_window)
             ImGui::ShowDemoWindow(&show_demo_window);
