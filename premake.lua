@@ -1,8 +1,8 @@
 -- premake5.lua
-workspace "myWorkspace"
+workspace "ToDoApp"
    architecture "x64"
    configurations { "Debug", "Release", "Dist" }
-   startproject "kubykEngine"
+   startproject "AppWindows"
 
    -- Workspace-wide build options for MSVC
    filter "system:windows"
@@ -10,8 +10,8 @@ workspace "myWorkspace"
 
 OutputDir = "%{cfg.system}-%{cfg.architecture}/%{cfg.buildcfg}"
 
-project "myApp"
-   kind "ConsoleApp"
+project "AppWindows"
+   kind "WindowedApp"
    language "C++"
    cppdialect "C++20"
    targetdir "bin/%{cfg.buildcfg}"
