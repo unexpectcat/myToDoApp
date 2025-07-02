@@ -8,6 +8,8 @@
 #include <windows.h>
 
 #include "Windows/CalendarView.h"
+#include "Style.h"
+#include "FontManager.h"
 
 static void glfw_error_callback(int error, const char* description) {
     fprintf(stderr, "GLFW Error %d: %s\n", error, description);
@@ -63,28 +65,21 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     ImGui::StyleColorsDark();
 
     // Setup scaling
-    ImGuiStyle& style = ImGui::GetStyle();
-    style.ScaleAllSizes(main_scale);
-    style.FontScaleDpi = main_scale;
-    //style.WindowRounding = 4.0f; // Set corner radius for buttons, sliders, etc. (in pixels)
-    style.ScaleAllSizes(main_scale);
+    
 
     // Setup Platform/Renderer backends
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
+
     // Our state
     bool show_demo_window = true;
     bool show_another_window = false;
-    ImVec4 clear_color = ImVec4(0.972f, 0.980f, 0.992f, 1.0f);
+    ImVec4 clear_color = color_palete.background;
 
-    //Setup fonts
-    ImFont* inter_font = io.Fonts->AddFontFromFileTTF("fonts\\static\\Inter_18pt-Regular.ttf", 18.0f);
-    if (inter_font == nullptr) {
-        printf("Failed to load font!\n");
-        inter_font = io.Fonts->AddFontDefault();
-    }
-    io.Fonts->Build();
+    
+    BuildStyle();
+    FontManager::LoadFonts();
 
     // Main loop
     while (!glfwWindowShouldClose(window)) {
@@ -99,22 +94,32 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        init_CalendarView();
-
+        
+        
         if (show_demo_window)
             ImGui::ShowDemoWindow(&show_demo_window);
 
         {
             static float f = 0.0f;
             static int counter = 0;
+            ImGui::PushFont(FontManager::icon_font);
             ImGui::Begin("Hello, world!");
             ImGui::Text("This is some useful text.");
+            ImGui::PopFont();
             ImGui::Checkbox("Demo Window", &show_demo_window);
             ImGui::Checkbox("Another Window", &show_another_window);
             ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
             ImGui::ColorEdit3("clear color", (float*)&clear_color);
-            if (ImGui::Button("Button"))
+            if (ImGui::Button("Light mode")){
                 counter++;
+                SetLightMode();
+                clear_color = color_palete.background;
+            }
+            if (ImGui::Button("Dark mode")) {
+                counter++;
+                SetDarkMode();
+                clear_color = color_palete.background;
+            }
             ImGui::SameLine();
             ImGui::Text("counter = %d", counter);
             ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
@@ -124,10 +129,27 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
         if (show_another_window) {
             ImGui::Begin("Another Window", &show_another_window);
             ImGui::Text("Hello from another window!");
-            if (ImGui::Button("Close Me"))
+            if (ImGui::Button("dark_mode"))
                 show_another_window = false;
+                
             ImGui::End();
         }
+
+        ImGui::BeginGroup(); // Keep icon and text together
+        {
+            ImGui::PushFont(FontManager::icon_font);
+            ImGui::TextUnformatted("Q"); // The icon (mapped to 'Q')
+            ImGui::PopFont();
+
+            ImGui::SameLine();
+
+            ImGui::PushFont(FontManager::inter_font);
+            ImGui::TextUnformatted("Menu");
+            ImGui::PopFont();
+        }
+
+        ImGui::EndGroup();
+        init_CalendarView();
 
         // Rendering
         ImGui::Render();

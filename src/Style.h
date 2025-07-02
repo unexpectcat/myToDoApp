@@ -1,22 +1,31 @@
 #pragma once
 #include "imgui.h"
-
+#include "FontManager.h"
 
 struct ColorPalete
 {
-	ImU32 background;
-	ImU32 panel;
-	ImU32 field;
-	ImU32 contrast;
-	ImU32 Task1;
-	ImU32 Task2;
-	ImU32 Task3;
-	ImU32 Task4;
-	ImU32 Task5;
+	ImVec4 text_color;
+	ImVec4 background;
+	ImVec4 MenuBarBg;
+	ImVec4 panel;
+	ImVec4 field;
+	ImVec4 contrast;
+	ImVec4 Task1;
+	ImVec4 Task2;
+	ImVec4 Task3;
+	ImVec4 Task4;
+	ImVec4 Task5;
 };
 
+void BuildStyle();
 void SetDarkMode();
+void SetLightMode();
 // Declare the global instance (in header)
+
+
+extern ImGuiStyle& style;
 extern ColorPalete color_palete;
 extern ColorPalete dark_color_palete;
 extern ColorPalete light_color_palete;
+extern float main_scale;
+

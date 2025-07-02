@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\ColorPalettes.h" />
+    <ClInclude Include="src\FontManager.h" />
     <ClInclude Include="src\Style.h" />
     <ClInclude Include="src\Widgets\BasicWidget.h" />
     <ClInclude Include="src\Widgets\CalendarWidget.h" />
@@ -163,6 +164,7 @@
     <ClCompile Include="external\imgui\imgui_tables.cpp" />
     <ClCompile Include="external\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\ColorPalettes.cpp" />
+    <ClCompile Include="src\FontManager.cpp" />
     <ClCompile Include="src\Style.cpp" />
     <ClCompile Include="src\Widgets\BasicWidget.cpp" />
     <ClCompile Include="src\Widgets\CalendarWidget.cpp" />

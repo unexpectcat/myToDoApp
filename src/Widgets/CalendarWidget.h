@@ -18,8 +18,6 @@ public:
 	void DisplayWidget(int x, int y) override
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		//PushStyleVar(ImGuiStyleVar_WindowRounding, 48.0f); // More rounded corners
-		//PushStyleVar(ImGuiStyleVar_FrameRounding, 46.0f); // Rounded buttons
 		sidebar_size = io.DisplaySize.x / 6;
 
 		ImGuiWindowFlags window_flags =
@@ -40,6 +38,7 @@ public:
 		ImGui::SetNextWindowPos(ImVec2(0, 0));
 		ImGui::SetNextWindowSize(io.DisplaySize);
 		Begin("Calendar view", nullptr, window_flags);
+
 
 		if (ImGui::BeginMenuBar()) {
 			if (ImGui::BeginMenu("File")) {
