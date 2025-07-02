@@ -33,7 +33,7 @@ public:
 			ImGuiWindowFlags_MenuBar |
 			ImGuiWindowFlags_NoBackground;
 
-		PushStyleColor(ImGuiCol_TitleBg, g_ColorPalete.contrast);
+		PushStyleColor(ImGuiCol_TitleBg, color_palete.contrast);
 		PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.2f, 0.4f, 0.6f, 1.0f));
 		PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.4f, 0.6f, 1.0f));
 

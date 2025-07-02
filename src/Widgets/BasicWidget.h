@@ -33,8 +33,8 @@ class BasicWidget
 		{
 			PushStyleVar(ImGuiStyleVar_WindowRounding, 8.0f); // More rounded corners
 			PushStyleVar(ImGuiStyleVar_FrameRounding, 6.0f); // Rounded buttons
-			PushStyleColor(ImGuiCol_TitleBg, g_ColorPalete.contrast);
-			PushStyleColor(ImGuiCol_WindowBg, g_ColorPalete.background); // Dark blue background
+			PushStyleColor(ImGuiCol_TitleBg, color_palete.contrast);
+			PushStyleColor(ImGuiCol_WindowBg, color_palete.background); // Dark blue background
 
 			PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.4f, 0.6f, 1.0f)); // Blue button
 			Begin("Test widget");
