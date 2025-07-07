@@ -11,6 +11,8 @@
 #include "Style.h"
 #include "FontManager.h"
 
+
+
 static void glfw_error_callback(int error, const char* description) {
     fprintf(stderr, "GLFW Error %d: %s\n", error, description);
 }
@@ -80,7 +82,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     
     BuildStyle();
     FontManager::LoadFonts();
-
     // Main loop
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
@@ -102,10 +103,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
         {
             static float f = 0.0f;
             static int counter = 0;
-            ImGui::PushFont(FontManager::icon_font);
             ImGui::Begin("Hello, world!");
-            ImGui::Text("This is some useful text.");
-            ImGui::PopFont();
+            ImGui::Text("This is my main_scale: %.2f", main_scale);
             ImGui::Checkbox("Demo Window", &show_demo_window);
             ImGui::Checkbox("Another Window", &show_another_window);
             ImGui::SliderFloat("float", &f, 0.0f, 1.0f);

@@ -27,5 +27,6 @@ extern ImGuiStyle& style;
 extern ColorPalete color_palete;
 extern ColorPalete dark_color_palete;
 extern ColorPalete light_color_palete;
+
 extern float main_scale;
 

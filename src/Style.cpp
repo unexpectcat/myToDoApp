@@ -1,7 +1,6 @@
 #include "Style.h"
 #include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include <GLFW/glfw3.h>
+
 
 
 
@@ -10,12 +9,7 @@
 
 void BuildStyle()
 {
-    float main_scale = ImGui_ImplGlfw_GetContentScaleForMonitor(glfwGetPrimaryMonitor());
-    ImGuiStyle& style = ImGui::GetStyle();
-    style.ScaleAllSizes(main_scale);
-    style.FontScaleDpi = main_scale;
-    //style.WindowRounding = 4.0f; // Set corner radius for buttons, sliders, etc. (in pixels)
-    style.ScaleAllSizes(main_scale);
+    FontManager::BuildFont();
     
     
     
