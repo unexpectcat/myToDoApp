@@ -420,3 +420,6 @@ FodyWeavers.xsd
 # ignore GLAD
 external/glad/glad
 external/glad/KHR
+
+# ignore .rar
+*.rar
